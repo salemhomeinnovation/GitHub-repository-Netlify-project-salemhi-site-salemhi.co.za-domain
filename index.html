@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SALEM HOME INNOVATION | Property Sales, Rentals & Home Renovation in Johannesburg</title>
+    <meta name="description" content="SALEM HOME INNOVATION - Your trusted real estate partner in Johannesburg. Property sales, rentals, home renovation, and property management services.">
+    <link rel="icon" type="image/png" href="SALEM.jpg">
+    <link rel="apple-touch-icon" href="SALEM.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a3a52;
+            --primary-dark: #0f2537;
+            --secondary: #c9a962;
+            --secondary-light: #e4d4a5;
+            --accent: #e74c3c;
+            --white: #ffffff;
+            --light: #f8f9fa;
+            --dark: #1a1a1a;
+            --gray: #6c757d;
+            --border: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 15px 0;
+            background: transparent;
+        }
+        
+        .header.scrolled {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+        }
+        
+        .header.scrolled .logo-text {
+            color: var(--primary);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+        
+        .nav a {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+        }
+        
+        .header.scrolled .nav a {
+            color: var(--dark);
+        }
+        
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav a:hover::after {
+            width: 100%;
+        }
+        
+        .header-btn {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .header-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled .mobile-toggle span {
+            background: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenBurns 20s ease-in-out infinite alternate;
+        }
+        
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.1) translate(-2%, -1%);
+            }
+            100% {
+                transform: scale(1.2) translate(-4%, -2%);
+            }
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.85), rgba(15, 37, 55, 0.7));
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 800px;
+        }
+        
+        .hero-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Services */
+        .services {
+            background: var(--light);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link:hover {
+            color: var(--secondary);
+            gap: 12px;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+        
+        /* About */
+        .about {
+            background: var(--white);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            border-radius: 15px;
+            box-shadow: 30px 30px 0 var(--secondary-light);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--secondary);
+            border-radius: 15px;
+            z-index: -1;
+        }
+        
+        .about-content h2 {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .founder-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 35px 0;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 15px;
+        }
+        
+        .founder-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+        }
+        
+        .founder-details h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .founder-details p {
+            color: var(--gray);
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        /* Properties */
+        .properties {
+            background: var(--light);
+        }
+        
+        .property-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .property-tab {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--dark);
+            border: 2px solid transparent;
+        }
+        
+        .property-tab.active, .property-tab:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .property-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .property-img {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .property-card:hover .property-img img {
+            transform: scale(1.1);
+        }
+        
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .property-badge.rent {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .property-info {
+            padding: 25px;
+        }
+        
+        .property-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .property-title {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .property-location {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .property-features {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .property-feature {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .property-card {
+            cursor: pointer;
+        }
+        
+        /* Property Modal */
+        .property-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .property-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .modal-gallery {
+            position: relative;
+        }
+        
+        .modal-main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .modal-thumbnails {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+        
+        .modal-thumb {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        
+        .modal-thumb:hover, .modal-thumb.active {
+            opacity: 1;
+        }
+        
+        .modal-info {
+            padding: 25px;
+        }
+        
+        .modal-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .modal-title {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .modal-location {
+            color: var(--gray);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .modal-features {
+            display: flex;
+            gap: 25px;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .modal-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .modal-description {
+            color: var(--gray);
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .modal-btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+        }
+        
+        .modal-btn-primary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .modal-btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .modal-btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Renovation Gallery */
+        .renovation {
+            background: var(--white);
+        }
+        
+        .renovation-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .renovation-item {
+            position: relative;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .renovation-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .renovation-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .renovation-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .renovation-item:hover .renovation-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Contact */
+        .contact {
+            background: var(--light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h2 {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 35px;
+            font-size: 16px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .contact-details h4 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .contact-details p {
+            margin: 0;
+            color: var(--gray);
+        }
+        
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        .form-control.error {
+            border-color: var(--accent);
+        }
+        
+        .error-message {
+            color: var(--accent);
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-control.error + .error-message {
+            display: block;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast.success {
+            background: #27ae60;
+        }
+        
+        .toast.error {
+            background: var(--accent);
+        }
+        
+        .toast-icon {
+            font-size: 24px;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6);
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand .logo {
+            margin-bottom: 25px;
+        }
+        
+        .footer-brand .logo-text {
+            color: var(--white);
+        }
+        
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 25px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .renovation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .properties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .section-title {
+                font-size: 32px;
+            }
+            .services-grid, .properties-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .property-tabs {
+                flex-wrap: wrap;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-btns {
+                flex-direction: column;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .renovation-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-image img {
+                box-shadow: 15px 15px 0 var(--secondary-light);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <img src="SALEM.jpg" alt="SALEM HOME INNOVATION" class="logo-img">
+                </a>
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#properties">Properties</a>
+                    <a href="#renovation">Renovation</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <a href="#contact" class="header-btn">Get In Touch</a>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80" alt="Luxury Johannesburg Home">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">Welcome to SALEM HOME INNOVATION</span>
+                <h1>Find Your Dream Home in Johannesburg</h1>
+                <p>Your trusted partner for property sales, rentals, home renovations, and property management in Johannesburg and surrounding areas.</p>
+                <div class="hero-btns">
+                    <a href="#properties" class="btn btn-primary">View Properties <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">What We Offer</h2>
+                <p class="section-subtitle">Comprehensive real estate solutions tailored to meet your every need</p>
+            </div>
+            <div class="services-grid">
+                    <div class="service-card" onclick="window.location.href='#properties'; document.querySelector('[data-tab=\'sale\']').click();">
+                        <div class="service-icon"><i class="fas fa-home"></i></div>
+                        <h3>Property Sales</h3>
+                        <p>Expert guidance through every step of buying or selling your property. We help you get the best value for your investment.</p>
+                        <a href="#properties" class="service-link" onclick="event.stopPropagation(); document.querySelector('[data-tab=\'sale\']').click();">View Properties <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card" onclick="window.location.href='#properties'; document.querySelector('[data-tab=\'rent\']').click();">
+                        <div class="service-icon"><i class="fas fa-key"></i></div>
+                        <h3>Property Rentals</h3>
+                        <p>Find the perfect rental property or list your property for rent. We connect landlords with quality tenants.</p>
+                        <a href="#properties" class="service-link" onclick="event.stopPropagation(); document.querySelector('[data-tab=\'rent\']').click();">View Rentals <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card" onclick="window.location.href='#renovation'">
+                        <div class="service-icon"><i class="fas fa-hammer"></i></div>
+                        <h3>Home Renovation</h3>
+                        <p>Transform your property with our professional renovation services. From concept to completion, we bring your vision to life.</p>
+                        <a href="#renovation" class="service-link" onclick="event.stopPropagation();">View Gallery <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card" onclick="window.location.href='#contact'">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3>Property Management</h3>
+                        <p>Full-service property management including maintenance, tenant screening, and rent collection.</p>
+                        <a href="#contact" class="service-link" onclick="event.stopPropagation();">Contact Us <i class="fas fa-arrow-right"></i></a>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Modern Interior">
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">About Us</span>
+                    <h2>Your Trusted Real Estate Partner in Johannesburg</h2>
+                    <p>SALEM HOME INNOVATION is a premier real estate company based in Johannesburg, South Africa. We specialize in property sales, rentals, home renovations, and property management services.</p>
+                    <p>With years of experience in the Johannesburg property market, we are committed to providing our clients with exceptional service and helping them achieve their real estate goals.</p>
+                    
+                    <div class="founder-info">
+                        <img src="https://helium.privateproperty.co.za/live-za-images/offices/14683/image/39ba44a6953b47c5bcb9e7c56c47eb8d_ola.jpg" alt="Alain Kalle" class="founder-img">
+                        <div class="founder-details">
+                            <h4>Mr. Alain Kalle</h4>
+                            <p>Founder & CEO</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item" onclick="document.querySelector('[data-tab=\'rent\']').click(); document.getElementById('properties').scrollIntoView({behavior: 'smooth'});">
+                            <div class="stat-number">17</div>
+                            <div class="stat-label">Properties for Rent</div>
+                        </div>
+                        <div class="stat-item" onclick="document.getElementById('reviews').scrollIntoView({behavior: 'smooth'});">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties -->
+    <section class="section properties" id="properties">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Listings</span>
+                <h2 class="section-title">Featured Properties</h2>
+                <p class="section-subtitle">Browse our carefully selected properties across Johannesburg</p>
+            </div>
+            
+            <div class="property-tabs">
+                <button class="property-tab active" data-tab="all">All</button>
+                <button class="property-tab" data-tab="rent">For Rent</button>
+            </div>
+            
+            <div class="properties-grid" id="properties-grid">
+                <!-- Rental Properties from PrivateProperty -->
+                <div class="property-card" data-type="rent">
+                    <div class="property-img">
+                        <img src="https://images.pp.co.za/listing/11703684/KzC2Nzbj805x6nnVOncXF1/600/450/contain/jpegorpng" alt="Studio Apartment">
+                        <span class="property-badge rent">For Rent</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">R 4,200/mo</div>
+                        <h3 class="property-title">Studio Apartment</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Franklin Roosevelt Park</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span class="property-feature"><i class="fas fa-bath"></i> 1 Bath</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-type="rent">
+                    <div class="property-img">
+                        <img src="https://images.pp.co.za/listing/11702951/jAbweByAxHrznM4JxtADy4/600/450/contain/jpegorpng" alt="Studio Apartment">
+                        <span class="property-badge rent">For Rent</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">R 4,200/mo</div>
+                        <h3 class="property-title">Studio Apartment</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Northcliff</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span class="property-feature"><i class="fas fa-bath"></i> 1 Bath</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-type="rent">
+                    <div class="property-img">
+                        <img src="https://images.pp.co.za/listing/11275362/0VyLcY4Q9kA2EcqlZuEcX7/600/450/contain/jpegorpng" alt="Studio Apartment">
+                        <span class="property-badge rent">For Rent</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">R 4,200/mo</div>
+                        <h3 class="property-title">Studio Apartment</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Albertville</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span class="property-feature"><i class="fas fa-bath"></i> 1 Bath</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-type="rent">
+                    <div class="property-img">
+                        <img src="https://images.pp.co.za/listing/11693066/RduzAVc1iNmKb6fR2HJ611/600/450/contain/jpegorpng" alt="3 Bedroom Apartment">
+                        <span class="property-badge rent">For Rent</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">R 8,500/mo</div>
+                        <h3 class="property-title">3 Bedroom Apartment</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Little Falls</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span class="property-feature"><i class="fas fa-bath"></i> 2 Baths</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-type="rent">
+                    <div class="property-img">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="2 Bedroom Apartment">
+                        <span class="property-badge rent">For Rent</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">R 7,500/mo</div>
+                        <h3 class="property-title">2 Bedroom Apartment</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Morningside, Sandton</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span class="property-feature"><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span class="property-feature"><i class="fas fa-car"></i> 1 Garage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="property-card" data-type="rent">
+                    <div class="property-img">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80" alt="1 Bedroom Apartment">
+                        <span class="property-badge rent">For Rent</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">R 6,500/mo</div>
+                        <h3 class="property-title">1 Bedroom Apartment</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Rivonia, Sandton</p>
+                        <div class="property-features">
+                            <span class="property-feature"><i class="fas fa-bed"></i> 1 Bed</span>
+                            <span class="property-feature"><i class="fas fa-bath"></i> 1 Bath</span>
+                            <span class="property-feature"><i class="fas fa-car"></i> 1 Garage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Renovation Gallery -->
+    <section class="section renovation" id="renovation">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Work</span>
+                <h2 class="section-title">Renovation Gallery</h2>
+                <p class="section-subtitle">Transforming homes across Johannesburg with quality craftsmanship</p>
+            </div>
+            <div class="renovation-grid">
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Kitchen fitters installing cabinets">
+                    <div class="renovation-overlay">
+                        <h4>Kitchen Installation</h4>
+                    </div>
+                </div>
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80" alt="Modern luxury kitchen">
+                    <div class="renovation-overlay">
+                        <h4>Modern Kitchen</h4>
+                    </div>
+                </div>
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&q=80" alt="Luxury kitchen interior">
+                    <div class="renovation-overlay">
+                        <h4>Luxury Kitchen</h4>
+                    </div>
+                </div>
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Contemporary bathroom">
+                    <div class="renovation-overlay">
+                        <h4>Bathroom Renovation</h4>
+                    </div>
+                </div>
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80" alt="Modern luxury bathroom">
+                    <div class="renovation-overlay">
+                        <h4>Modern Bathroom</h4>
+                    </div>
+                </div>
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Bathroom with hot tub">
+                    <div class="renovation-overlay">
+                        <h4>Spa Bathroom</h4>
+                    </div>
+                </div>
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Architect with blueprints">
+                    <div class="renovation-overlay">
+                        <h4>Project Planning</h4>
+                    </div>
+                </div>
+                <div class="renovation-item">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="Contractor with clients">
+                    <div class="renovation-overlay">
+                        <h4>Full Renovations</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section reviews" id="reviews" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Hear from our satisfied clients across South Africa</p>
+            </div>
+            <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div class="review-card" style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                    <div style="color: var(--secondary); margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-style: italic;">"Salem Home Innovation helped me find my dream home in Sandton. Very professional and responsive. Highly recommended!"</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Nigel Imran" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: var(--primary); margin: 0;">Nigel Imran</h4>
+                            <small style="color: var(--gray);">Johannesburg</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card" style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                    <div style="color: var(--secondary); margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-style: italic;">"Best real estate agency in Johannesburg! They managed my property flawlessly."</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80" alt="Thobile Dlamini" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: var(--primary); margin: 0;">Thobile Dlamini</h4>
+                            <small style="color: var(--gray);">Soweto</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card" style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                    <div style="color: var(--secondary); margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-style: italic;">"Excellent renovation services! Transformed my home completely. Professional work ethic."</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Dan Terreblanche" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: var(--primary); margin: 0;">Dan Terreblanche</h4>
+                            <small style="color: var(--gray);">Pretoria</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card" style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                    <div style="color: var(--secondary); margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-style: italic;">"Found the perfect rental through them. Very honest and transparent throughout the process."</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Chriselda Williams" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: var(--primary); margin: 0;">Chriselda Williams</h4>
+                            <small style="color: var(--gray);">Durban</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card" style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                    <div style="color: var(--secondary); margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-style: italic;">"Great experience renting through Salem Home Innovation. Quick responses and professional service."</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Pieter van der Merwe" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: var(--primary); margin: 0;">Pieter van der Merwe</h4>
+                            <small style="color: var(--gray);">Cape Town</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card" style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                    <div style="color: var(--secondary); margin-bottom: 15px;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 20px; font-style: italic;">"Their renovation team did an amazing job on my kitchen. Highly skilled workers!"</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Lucie De La Renta" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: var(--primary); margin: 0;">Lucie De La Renta</h4>
+                            <small style="color: var(--gray);">East London</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Contact Us</span>
+                    <h2>Get In Touch</h2>
+                    <p>Ready to find your dream home or sell your property? Contact us today for a free consultation.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Office Address</h4>
+                            <p>51, 5th Avenue, Fontainebleau, Johannesburg, Gauteng, 2032</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <p>+27 74 787 0098</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>alainkale@yahoo.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                            <span class="error-message">Please enter your name</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <span class="error-message">Please enter a valid email</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                            <span class="error-message">Please enter your phone number</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <span class="error-message">Please enter a subject</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                            <span class="error-message">Please enter your message</span>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="SALEM.jpg" alt="SALEM HOME INNOVATION" class="logo-img">
+                    </a>
+                    <p>Your trusted partner for property sales, rentals, home renovations, and property management in Johannesburg.</p>
+                    <div class="footer-social">
+                        <a href="https://www.tiktok.com/@alain.kale5" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/alain.ngudia" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/alainngudia/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/alain-kalengayi-4bbb70174/?originalSubdomain=za" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#renovation">Renovation</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Property Sales</a></li>
+                        <li><a href="#services">Property Rentals</a></li>
+                        <li><a href="#services">Home Renovation</a></li>
+                        <li><a href="#services">Property Management</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+27747870097">+27 74 787 0098</a></li>
+                        <li><a href="mailto:alainkale@yahoo.com">alainkale@yahoo.com</a></li>
+                        <li><a href="#">51, 5th Avenue, Fontainebleau, Johannesburg, 2032</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 SALEM HOME INNOVATION. All rights reserved. | Designed with Alain Kalle</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Property Modal -->
+    <div class="property-modal" id="propertyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePropertyModal()">&times;</button>
+            <div class="modal-gallery">
+                <img src="" alt="Property" class="modal-main-image" id="modalMainImage">
+                <div class="modal-thumbnails" id="modalThumbnails"></div>
+            </div>
+            <div class="modal-info">
+                <div class="modal-price" id="modalPrice"></div>
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <p class="modal-location" id="modalLocation"></p>
+                <div class="modal-features" id="modalFeatures"></div>
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-actions">
+                    <a href="https://wa.me/27747870098" class="modal-btn modal-btn-primary" target="_blank">WhatsApp Now</a>
+                    <button class="modal-btn modal-btn-outline" onclick="closePropertyModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/27747870098" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-icon"><i class="fas fa-check-circle"></i></span>
+        <span class="toast-message">Message sent successfully!</span>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Property tabs
+        const tabs = document.querySelectorAll('.property-tab');
+        const properties = document.querySelectorAll('.property-card');
+        
+        // Property Modal
+        const propertyModal = document.getElementById('propertyModal');
+        
+        const propertyData = [
+            {
+                title: "2 Bedroom House",
+                price: "R 19,000/mo",
+                location: "Morningside, Sandton",
+                type: "rent",
+                beds: 2, baths: 2, garages: 2,
+                description: "Beautiful unfurnished 2bedroom 2bathroom penthouse to rent in Morningside Sandton. Spacious living room, 2 well-spaced bedrooms with built in wardrobes, 2 bathrooms including main ensuite. Large roof terrace with spectacular view. Pool, Gym, Communal Garden and clubhouse. 24hr security guards.",
+                images: [
+                    "https://images.pp.co.za/listing/11686926/qLqBjtEIAp2fWRuZIZKFj7/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/ozjxeYC5jTS0sxzduqiLf3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/uThejAyIcuAyi50D8DCEO5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/myyNiEqTT0wJYcDYOhBN77/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/2IlPPSYbSoS5oSPv1HyTu4/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/0RwxEio7pgdfxtG73kNl10/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/bOJsHUknHdNW5YNSugbhB0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/Yz59LJFtoHqKS9kjaGDnR5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686926/giL3fhXasKFHq2AcUErvH6/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "2 Bedroom Apartment",
+                price: "R 18,000/mo",
+                location: "Morningside, Sandton",
+                type: "rent",
+                beds: 2, baths: 2, garages: 2,
+                description: "Fully Furnished 2-Bedroom Apartment with Breathtaking Sandton Views. Spacious open-plan lounge and kitchen, private balcony with skyline views. Main bedroom with en-suite. 24/7 security, gym and swimming pool. Close to hospitals, shopping malls, and transport routes.",
+                images: [
+                    "https://images.pp.co.za/listing/11686853/8hiehGV0oR0vvcDQIJ1xQ0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/6vpXss9VMFOUQLZnNEdal3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/7Sbzg6Q7zfBj8pGRaaK517/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/aX0ArpQZhNIgLmBEfD8gx5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/qEySbzac9nmz1E9jRh8ob7/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/xzV3TVgOxnH1shZndHrju4/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/nMLHd1YX1Kgwv1cxVrFYp4/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/o4Ta3Cvmrr3O5t5VdbFRW5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11686853/NoimeXd0dzlLFAyuxx0a67/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "2 Bedroom Townhouse",
+                price: "R 7,600/mo",
+                location: "Northgate, Johannesburg",
+                type: "rent",
+                beds: 2, baths: 2, garages: 2,
+                description: "Second floor townhouse with spacious upstairs extended loft versatile as third bedroom, entertainment room or work-from-home office. Tucked away at end of complex providing privacy. Conveniently located near Northgate shopping mall and restaurants.",
+                images: [
+                    "https://images.pp.co.za/listing/11683363/j7e3Hi6gYBJvLw9Z73Q4f3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/5uG5nwpSiprXXJy1jaRCS1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/OuKq6Hv5xLvyQToVJSfSJ1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/O7Qap7EVEviMypynN37fp5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/VZHCXMbmN6Hkh28vEPenm1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/XZs64y4bGlSnJbW3cDS4I4/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/ivZ5O6qq4AX8s8A9IiQaw1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/L1akjJqHJZBHvtVf4Flzo3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11683363/328uCo1Bmh3oRVMSCPLIj5/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "2 Bedroom Apartment",
+                price: "R 17,500/mo",
+                location: "Edenburg, Sandton",
+                type: "rent",
+                beds: 2, baths: 2, garages: 2,
+                description: "Exclusive Two-Bedroom Luxury Penthouse at Van Wessel Street, Rivonia. Exceptional upmarket penthouse with meeting rooms, gym, and swimming pool. No pets, no smoking. Professionally repainted prior to occupation.",
+                images: [
+                    "https://images.pp.co.za/listing/11651358/Pnp0ZtLiPIelicGufC6Fo6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/VpkMmx3Ks1JVwM5bvCVYx5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/HF68TKze46w7HDhjkJRvq6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/37r5Ti5CeEhmD8Kcu5Lpu4/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/y4avzRnHSxKQ39VDDbxMp6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/Fa7yKpiPcoKOuWlzVogRk3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/5B912vA0FpDh5MI0lhRlw1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/5aWj9f5w2C0gCoiIB1e216/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11651358/xbVP4Tap5wewFx283iJro6/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "2 Bedroom Apartment",
+                price: "R 18,000/mo",
+                location: "Morningside, Sandton",
+                type: "rent",
+                beds: 2, baths: 2, garages: 2,
+                description: "Fully Furnished 2-Bedroom Apartment with Breathtaking Sandton Views. Spacious open-plan lounge and kitchen, private balcony. Main bedroom with en-suite. 24/7 security, gym and pool. Close to Sandton City.",
+                images: [
+                    "https://images.pp.co.za/listing/11648929/eHR4TLrEjFuK7shq9j7nc2/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/Lv0wEHLXFXnpbkmfB1oT87/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/MhB71nTShqDtOGiG3r29D4/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/EEr6MufPrPqjfatOXpYZ54/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/iyypmzLHhasoLWPXGQyOp2/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/LQA4vqvNkOKpo6qWz3aAh5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/ZrWktR9GMvaqQnlgCnSL86/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/k4dMv8YjhCB4gaxtLRw4l7/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648929/bAGnA9rI8xU4TdeDAMMat5/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "2 Bedroom Apartment",
+                price: "R 19,000/mo",
+                location: "Morningside, Sandton",
+                type: "rent",
+                beds: 2, baths: 2, garages: 2,
+                description: "Beautiful unfurnished 2bedroom 2bathroom penthouse in Morningside Sandton. Spacious living room, 2 bedrooms with built in wardrobes, 2 bathrooms including main ensuite. Large roof terrace with spectacular view. Pool, Gym, Garden and clubhouse. 24hr security.",
+                images: [
+                    "https://images.pp.co.za/listing/11648895/bXNneyiw1NukenVrdIiuN0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/zMbRJzPsIhuc34wKBnkgK2/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/oblKIQNGYDJAi4R2P1P4X3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/NKlb7KJS0xfsO0ZYNb1Sj3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/ogb6FIRWEL9Vaz0tlppNd5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/ji4YW5hCJNRl3YJTJFqQW6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/Jt3epvVmF4I3UdiuyiFGt2/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/TgSUEu60CZsTxiLg5AwUF5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648895/xza0WGrxz4sTednX0MPTH7/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "4.5 Bedroom House",
+                price: "R 50,000/mo",
+                location: "Rivonia, Sandton",
+                type: "rent",
+                beds: 4, baths: 4, garages: 2,
+                description: "FULLY FURNISHED family home ideal for expats or families. Overlooks garden, infinity pool, river and large trees. 15 minutes from Sandton CBD, 5 minutes from N1. 4 bedrooms, study (5th bedroom), 4 bathrooms, 2 lounges, playroom. Solar panels and inverter. Fully furnished and equipped.",
+                images: [
+                    "https://images.pp.co.za/listing/11648582/ENi1RsgnS7s9NAJyNrg7p0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/XBb0aO8jTJtzBU5lKlEht1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/7rMRybmWWRPeBIF2Vs65T0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/3sZ23vu6GLS5x2HLqiVCT5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/fZ2gi32LNLcK2i8Nys7KD5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/36LPTNvIsOhACj4AGc29N1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/MIQKvxNh5dsuBbDSxj3oW6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/XurgSoeEAgdrujeSlWYIZ6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11648582/bvgU4yoGR6egtJfXmEHVQ2/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "1 Bedroom Apartment",
+                price: "R 13,000/mo",
+                location: "Waterfall Estate, Midrand",
+                type: "rent",
+                beds: 1, baths: 1, garages: 1,
+                description: "Fully furnished, stylish apartment in prestigious Waterfall City. Modern interiors, spacious living areas, beautifully appointed bedroom. Free access to estate gym, recreation lake, spa, restaurants and laundry service.",
+                images: [
+                    "https://images.pp.co.za/listing/11647900/vWGpt7W0qAxIYfPqqovkW3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647900/kekmai71b7Ai58k0LIag71/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647900/6SQnoPqWKsFaDsF2ucuZD5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647900/cFGFJpt1MOIBOszDvs9Sv6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647900/5rc8QWaqgllPp7G79BGvB6/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647900/TgFc1tDFtXlWSzgyEoLRv4/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647900/pDogTxupAzGfmcwYryUjL2/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647900/C6VkhuAREvgY3ktU2aKc10/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "4 Bedroom House",
+                price: "R 37,500/mo",
+                location: "Bryanston, Sandton",
+                type: "rent",
+                beds: 4, baths: 2, garages: 3,
+                description: "Magnificent 4 Bedroom House in Bryanston with Huge Garden Oasis. Lounge, Dining, Kitchen, TV Room, Pyjama Lounge, Pool House. Triple Garage. Includes Gardener 2x Week, Pool Service 1x Week, WIFI. Fully Renovated brand new Kitchen and Bathrooms. Gas Stove, Borehole and Sprinkler System.",
+                images: [
+                    "https://images.pp.co.za/listing/11647111/ubsPpnJOJo5IE63XAQvog2/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/Fv8fKonZ3VlZCIpN1iGPg0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/n7G2o5Umzxxyg6PByKqpn0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/0YN03RMSqb9i3PUlJOUhD3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/cwI9BJzr7giOnie5EgXWi1/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/AUgxRf3kMzgrCQxC24p5R0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/M9DoHAIm1MPHEKIXz5mCH3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/L31KqgAiqHl6sed9cXfiQ5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11647111/E6elpjmflQgq2DPypUd7p2/600/450/contain/jpegorpng"
+                ]
+            },
+            {
+                title: "2 Bedroom Apartment",
+                price: "R 10,500/mo",
+                location: "Paulshof, Sandton",
+                type: "rent",
+                beds: 2, baths: 2, garages: 1,
+                description: "Well-maintained 2-bedroom, 2-bathroom apartment in Paulshof, Sandton. Open-plan living and dining area, modern kitchen with ample cupboard space. Main bedroom with en-suite. Secure complex with easy access to N1 and Rivonia. Rental includes water, sewage and high-speed Unlimited Wi-Fi.",
+                images: [
+                    "https://images.pp.co.za/listing/11641408/QB5GSLmwgaf9HzRuhnr4Q5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/MdVfnbUdEWdTi4ukCgl8e5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/jvzhP93su2g2hTzccSDoa0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/7Fja2dtcOxuYjNL59jg3u3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/cFV7pGRwGa9n9GflhjekQ7/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/l0B6OGXI4KzgyYxoYl2VX5/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/WTeDcbsK0PcQ6RxO4bjZs0/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/W7CBDGzCoy1R0nTJ3t65J3/600/450/contain/jpegorpng",
+                    "https://images.pp.co.za/listing/11641408/yzHw0D0OypysK2KpmUKAa5/600/450/contain/jpegorpng"
+                ]
+            }
+        ];
+        
+        // Add click handlers to property cards
+        document.querySelectorAll('.property-card').forEach((card, index) => {
+            card.addEventListener('click', function() {
+                showPropertyModal(index);
+            });
+        });
+        
+        function showPropertyModal(index) {
+            const data = propertyData[index];
+            if (!data) return;
+            
+            document.getElementById('modalPrice').textContent = data.price;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalLocation').innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + data.location;
+            document.getElementById('modalDescription').textContent = data.description;
+            
+            let featuresHTML = '';
+            if (data.beds) featuresHTML += '<div class="modal-feature"><i class="fas fa-bed"></i> ' + data.beds + ' Bedrooms</div>';
+            if (data.baths) featuresHTML += '<div class="modal-feature"><i class="fas fa-bath"></i> ' + data.baths + ' Bathrooms</div>';
+            if (data.garages) featuresHTML += '<div class="modal-feature"><i class="fas fa-car"></i> ' + data.garages + ' Garages</div>';
+            document.getElementById('modalFeatures').innerHTML = featuresHTML;
+            
+            // Set main image
+            document.getElementById('modalMainImage').src = data.images[0];
+            
+            // Set thumbnails
+            let thumbsHTML = '';
+            data.images.forEach((img, i) => {
+                thumbsHTML += '<img src="' + img + '" class="modal-thumb' + (i === 0 ? ' active' : '') + '" onclick="changeMainImage(\'' + img + '\', this)">';
+            });
+            document.getElementById('modalThumbnails').innerHTML = thumbsHTML;
+            
+            propertyModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function changeMainImage(src, thumb) {
+            document.getElementById('modalMainImage').src = src;
+            document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+        
+        function closePropertyModal() {
+            propertyModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        propertyModal.addEventListener('click', function(e) {
+            if (e.target === propertyModal) {
+                closePropertyModal();
+            }
+        });
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.tab;
+                
+                properties.forEach(property => {
+                    if (filter === 'all' || property.dataset.type === filter) {
+                        property.style.display = 'block';
+                    } else {
+                        property.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form validation
+        const form = document.getElementById('contact-form');
+        const toast = document.getElementById('toast');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const formControls = form.querySelectorAll('.form-control');
+            
+            formControls.forEach(control => {
+                if (!control.value.trim()) {
+                    control.classList.add('error');
+                    isValid = false;
+                } else {
+                    control.classList.remove('error');
+                }
+                
+                // Email validation
+                if (control.type === 'email' && control.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(control.value)) {
+                        control.classList.add('error');
+                        isValid = false;
+                    }
+                }
+                
+                // Phone validation
+                if (control.type === 'tel' && control.value) {
+                    const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+                    if (!phoneRegex.test(control.value) || control.value.length < 10) {
+                        control.classList.add('error');
+                        isValid = false;
+                    }
+                }
+            });
+            
+            if (isValid) {
+                // Prepare form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                try {
+                    // Send to Formspree or backend
+                    const response = await fetch('https://formspree.io/f/alainkale@yahoo.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    // Show success toast
+                    toast.classList.add('success');
+                    toast.querySelector('.toast-icon').innerHTML = '<i class="fas fa-check-circle"></i>';
+                    toast.querySelector('.toast-message').textContent = 'Message sent successfully!';
+                    toast.classList.add('show');
+                    
+                    // Reset form
+                    form.reset();
+                    
+                } catch (error) {
+                    // Show error toast
+                    toast.classList.add('error');
+                    toast.querySelector('.toast-icon').innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+                    toast.querySelector('.toast-message').textContent = 'Failed to send message. Please try again.';
+                    toast.classList.add('show');
+                }
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+            }
+        });
+        
+        // Remove error class on input
+        document.querySelectorAll('.form-control').forEach(control => {
+            control.addEventListener('input', function() {
+                this.classList.remove('error');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
