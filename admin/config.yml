@@ -1,6 +1,7 @@
 
 backend:
-  name: git-gateway
+  name: github
+  repo: salemhomeinnovation/GitHub-repository-Netlify-project-salemhi-site-salemhi.co.za-domain
   branch: main
 
 site_url: https://salemhi.co.za
